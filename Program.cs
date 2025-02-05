@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Todos.WebApi.Context;
 using Todos.WebApi.Models;
@@ -21,7 +22,7 @@ app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/getall", (ApplicationDbContext context) => Results.Ok(context.Todos.ToList()));
 
-app.MapPost("/create", (ApplicationDbContext context, Todo todo) =>
+app.MapPost("/create", (ApplicationDbContext context, [FromBody] Todo todo) =>
 {
     context.Add(todo);
     context.SaveChanges();
