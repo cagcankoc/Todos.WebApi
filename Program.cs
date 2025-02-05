@@ -13,7 +13,8 @@ app.MapGet("/", () => "Hello World!");
 app.MapGet("/getall", () => Results.Ok(new List<string>()
 {
     "Example 1",
-    "Example 2"
+    "Example 2",
+    "Example 3"
 }));
 
 app.MapPost("/create", (string work) =>
