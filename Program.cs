@@ -9,10 +9,16 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.MapGet("/", () => "Hello World!");
+
 app.MapGet("/getall", () => Results.Ok(new List<string>()
 {
     "Example 1",
     "Example 2"
 }));
+
+app.MapPost("/create", (string work) =>
+{
+    Results.Ok(work);
+});
 
 app.Run();
